@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+      <a routerLink="/dashboard/jobs" class="nav-link p-3">
+        <i class="fa fa-briefcase"></i> Dashboard</a
+      >
+    </li>
+    <li class="nav-item">
+      <a routerLink="/seeker/search" class="nav-link p-3">
+        <i class="fa fa-search"></i> Search</a
+      >
+    </li>
+
+    <li class="nav-item dropdown">
+      <a
+        class="nav-link dropdown-toggle p-3"
+        id="navbardrop"
+        data-toggle="dropdown"
+        style="cursor: pointer;"
+      >
+        <i class="fa fa-user"></i>{{ username }}
+      </a>
+      <div class="dropdown-menu dropdown-menu-right bg-light">
+        <a
+          class="dropdown-item p-2"
+          (click)="gotoprofilepage()"
+          style="cursor: pointer;"
+          >PROFILE</a
+        >
+        <a
+          class="dropdown-item p-2"
+          (click)="logoutemployee()"
+          style="cursor: pointer;"
+          >LOGOUT</a
+        >
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="container mt-2 dashboard">
+  <nav>
+    <button (click)="jobs()">JOBS</button>
+    <button (click)="appliedjobs()">APPLIED JOBS</button>
+  </nav>
+  <router-outlet></router-outlet>
+</div>

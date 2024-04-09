@@ -1,0 +1,75 @@
+<div class="container-fluid">
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+      <a routerLink="/dashboard/jobs" class="nav-link p-3">
+        <i class="fa fa-briefcase"></i> Dashboard</a
+      >
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link p-3" id="navbardrop" style="cursor: pointer;">
+        <i class="fa fa-user"></i> {{ username }}
+      </a>
+    </li>
+  </ul>
+</div>
+
+<div class="container mt-3">
+  <form class="form-horizontal" [formGroup]="searchform">
+    <div class="row">
+      <div class="col-sm-3 form-group">
+        <select name="search" id="search" formControlName="searchdrop">
+          <option value="" selected>Select One Below.......</option>
+          <option value="companyname">CompanyName</option>
+          <option value="Role">JobRole</option>
+          <option value="latest">Latest Jobs</option>
+        </select>
+      </div>
+      <div class="col-sm-6 form-group">
+        <input
+          type="text"
+          id="myInput"
+          formControlName="searchname"
+          placeholder="Search for names.."
+        />
+      </div>
+      <div class="col-sm-3">
+        <button class="btn btn-success btn-lg" (click)="search()">
+          Search
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="container" *ngIf="companymsg">
+  <div class="row" *ngIf="successmsg; else nojobsmessage">
+    <table class="table">
+      <thead>
+        <tr>
+          <th *ngFor="let key of headers">{{ key }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let job of jobs">
+          <td>{{ job.jobRole }}</td>
+          <td>{{ job.expRequired }}</td>
+          <td>{{ job.jobType }}</td>
+          <td>{{ job.postedDate }}</td>
+          <td>
+            <button class="btn btn-success" routerLink="/dashboard/jobs">
+              Apply
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <ng-template #nojobsmessage>
+    <div>
+      <h3 class="text-center">{{ nojobs }}</h3>
+    </div>
+  </ng-template>
+</div>
+
+<!-- Repeat the same structure for rolemsg and latestmsg sections -->

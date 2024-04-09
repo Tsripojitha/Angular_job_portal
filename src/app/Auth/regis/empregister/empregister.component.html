@@ -1,0 +1,15 @@
+<form [formGroup]="formgroupobject">
+  <input [(ngModel)]="username" type="text" placeholder="UserName" formControlName="username" />
+  <br>
+  <input  [(ngModel)]="password"type="text" placeholder="Password" formControlName="password" />
+  <br>
+  <input  [(ngModel)]="phonenumber" type="text" placeholder="phonenumber" formControlName="phonenumber" />
+  <br>
+  <input   [(ngModel)]="experience"type="text" placeholder="experience" formControlName="experience" />
+  <br>
+  <input  [(ngModel)]="department" type="text" placeholder="department" formControlName="department" />
+  <br>
+  <button (click)="registeremployee()" >Register</button>
+
+</form>
+<router-outlet></router-outlet>

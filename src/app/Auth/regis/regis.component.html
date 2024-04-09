@@ -1,0 +1,16 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    <h2>Register</h2>
+    <p>Select the respective tabs!!!</p>
+    <ul class="nav nav-tabs">
+      <li class="nav-item ">
+        <!-- (click)="employeeregisterpage()"  (click)="recruiterregisterpage()"-->
+        <a routerLink="register/emp_register" class="nav-link" style="cursor:pointer"  >Employee</a>
+      </li>
+      <!-- <li class="nav-item">
+        <a routerLink="register/rec_register" class="nav-link " style="cursor:pointer" >Recruiter</a>
+      </li> -->
+    </ul>
+    <router-outlet></router-outlet>
+  </div>
